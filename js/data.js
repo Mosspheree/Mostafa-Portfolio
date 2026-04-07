@@ -102,15 +102,17 @@ const EXPERIENCE = [
   },
   {
     date: "SEP 2023 — MAY 2024",
-    company: "The George Washington University",
+    company: "GWU — JBKO Residence Hall",
     role: "Communications Chair",
     bullets: [
-      "Managed communications strategy and outreach for a GWU student organization.",
-      "Produced content and coordinated messaging across digital platforms to grow member engagement.",
+      "Served as Communications Chair for JBKO residence hall, managing internal communications and community outreach for 100+ residents.",
+      "Planned and coordinated hall events, handling logistics, promotion, and execution from concept to completion.",
+      "Acted as liaison between residents and residential staff, ensuring timely and clear communication across the community.",
     ],
     tags: [
-      { label: "Communications", color: "cyan"  },
-      { label: "Leadership",     color: "amber" },
+      { label: "Event Planning",   color: "cyan"  },
+      { label: "Communications",   color: "amber" },
+      { label: "Leadership",       color: "green" },
     ],
   },
 ];
