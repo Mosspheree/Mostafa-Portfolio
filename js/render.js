@@ -26,7 +26,6 @@ function renderExperience() {
 function renderProjects() {
   const container = document.getElementById('projects-container');
   if (!container) return;
-
   container.innerHTML = PROJECTS.map(p => {
     const featuredClass = p.featured ? 'featured' : '';
     const visual = p.hasOrbit ? `
@@ -39,6 +38,14 @@ function renderProjects() {
         </div>
       </div>` : '';
 
+    const buttons = `
+      <div class="project-buttons">
+        <span class="project-link">View on GitHub</span>
+        ${p.paperLink ? `<a href="${p.paperLink}" target="_blank" class="project-link paper-link" onclick="event.stopPropagation()">Read Paper</a>` : ''}
+        ${p.liveLink ? `<a href="${p.liveLink}" target="_blank" class="project-link live-link" onclick="event.stopPropagation()">Live Demo</a>` : ''}
+      </div>
+    `;
+
     const inner = `
       <div>
         <div class="project-num">${p.num}</div>
@@ -48,11 +55,10 @@ function renderProjects() {
         <div class="project-tags">
           ${p.tags.map(t => `<span class="tag tag-${t.color}">${t.label}</span>`).join('')}
         </div>
-        <div class="project-link">View on GitHub</div>
+        ${buttons}
       </div>
       ${visual}
     `;
-
     return `
       <a href="${p.link}" target="_blank" class="project-card ${featuredClass} reveal">
         ${inner}
