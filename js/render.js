@@ -23,7 +23,7 @@ function renderExperience() {
 function renderProjects() {
   const container = document.getElementById('projects-container');
   if (!container) return;
-  container.innerHTML = PROJECTS.map(p => {
+  container.innerHTML = PROJECTS.filter(Boolean).map(p => {
     const visual = p.hasOrbit ? `
       <div class="featured-visual">
         <div class="orbit-demo">
