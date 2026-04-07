@@ -163,3 +163,14 @@
   .project-card.featured { grid-column: 1; display: block; }
   .featured-visual { display: none; }
 }
+.project-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.paper-link, .live-link {
+  color: #f5a623;
+  border-color: #f5a623;
+}
