@@ -177,6 +177,7 @@ const PROJECTS = [
       { label: "Edge AI",         color: "red"   },
     ],
     link: "https://github.com/Mosspheree/SLM-Bench",
+    paperLink: "https://par.nsf.gov/servlets/purl/10653860",
   },
   {
     num: "PROJECT 05",
