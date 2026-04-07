@@ -191,6 +191,21 @@ const PROJECTS = [
     ],
     link: "https://github.com/Mosspheree",
   },
+  {
+    num: "PROJECT 06",
+    name: "RISC-V RV32I Processor",
+    sub: "3-Stage Pipelined CPU on Intel MAX 10 FPGA",
+    desc: "Full 32-bit RISC-V CPU designed from scratch in Verilog HDL and targeting the Intel MAX 10 FPGA. Implements a 3-stage pipeline (Fetch, Decode, Execute/Writeback) with hazard detection, data forwarding, and a memory-mapped UART peripheral. Includes a bare-metal C runtime, linker script, and 5 self-checking testbenches with 19 passing assertions. Verified with Icarus Verilog simulation.",
+    tags: [
+      { label: "Verilog HDL",       color: "cyan"  },
+      { label: "RISC-V RV32I",      color: "cyan"  },
+      { label: "Intel MAX 10 FPGA", color: "amber" },
+      { label: "Pipeline Design",   color: "amber" },
+      { label: "UART Peripheral",   color: "green" },
+      { label: "Bare-Metal C",      color: "red"   },
+    ],
+    link: "https://github.com/Mosspheree/riscv-rv32i-processor",
+  },
 ];
 
 
