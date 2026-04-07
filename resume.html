@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Resume — Mostafa Elshabasy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050d1a;
+    --bg2: #081425;
+    --accent: #00d4ff;
+    --accent2: #00ff88;
+    --gold: #f5a623;
+    --text: #c8d8e8;
+    --text-dim: #5a7a9a;
+    --border: rgba(0,212,255,0.15);
+    --rule: rgba(0,212,255,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(5,13,26,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.active { color: var(--accent); }
+
+  /* PAGE WRAPPER */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6rem 2rem 4rem;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-title-block { }
+  .page-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--accent);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-download:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-download svg { width: 14px; height: 14px; }
+
+  /* RESUME CARD */
+  .resume-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    position: relative;
+  }
+  .resume-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  /* RESUME HEADING */
+  .r-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+  .r-contact {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    margin-top: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.8rem;
+  }
+  .r-contact a { color: var(--accent); text-decoration: none; }
+  .r-contact a:hover { text-decoration: underline; }
+
+  /* SECTION */
+  .r-section { margin-top: 1.4rem; }
+  .r-section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0.7rem;
+  }
+
+  /* SUMMARY */
+  .r-summary {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .r-summary strong { color: var(--accent2); font-weight: 500; }
+
+  /* SKILLS */
+  .r-skills { font-size: 0.8rem; line-height: 1.7; }
+  .r-skills span { color: var(--accent2); font-weight: 500; }
+
+  /* EXPERIENCE + PROJECTS entries */
+  .r-entry { margin-bottom: 0.9rem; }
+  .r-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+  }
+  .r-entry-title {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #fff;
+  }
+  .r-entry-title em {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-dim);
+  }
+  .r-entry-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .r-entry-meta {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-bottom: 0.3rem;
+  }
+  .r-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0.25rem 0 0 0;
+  }
+  .r-bullets li {
+    font-size: 0.79rem;
+    color: var(--text);
+    line-height: 1.5;
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.2rem;
+  }
+  .r-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .r-bullets li strong { color: var(--accent2); font-weight: 500; font-style: italic; }
+
+  /* AWARDS */
+  .r-award-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.79rem;
+    padding: 0.18rem 0;
+    border-bottom: 1px solid rgba(0,212,255,0.05);
+  }
+  .r-award-row:last-child { border-bottom: none; }
+  .r-award-name { font-weight: 500; color: #ddeeff; }
+  .r-award-name em { font-weight: 300; color: var(--text-dim); font-style: normal; }
+  .r-award-date { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--text-dim); }
+
+  /* EDUCATION */
+  .r-edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .r-edu-school { font-weight: 500; color: #fff; font-size: 0.82rem; }
+  .r-edu-degree { font-size: 0.79rem; color: var(--text); margin-top: 0.1rem; }
+  .r-edu-degree strong { color: var(--accent2); }
+  .r-edu-date { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--text-dim); }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    .resume-card { padding: 1.5rem 1.2rem; }
+    .page-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    nav { padding: 0.8rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ME</a>
+  <ul class="nav-links">
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="resume.html" class="active">Resume</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <div class="page-title-block">
+      <div class="page-eyebrow">// curriculum vitae</div>
+      <div class="page-title">Resume</div>
+    </div>
+    <a href="resume.pdf" download class="btn-download">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </a>
+  </div>
+
+  <div class="resume-card">
+
+    <!-- HEADING -->
+    <div class="r-name">Mostafa Elshabasy</div>
+    <div class="r-contact">
+      <span>Washington, DC, USA</span>
+      <span>·</span>
+      <span>202-510-2396</span>
+      <span>·</span>
+      <a href="mailto:mostafamoh2015@gwu.edu">mostafamoh2015@gwu.edu</a>
+      <span>·</span>
+      <a href="https://linkedin.com/in/mosshabasy" target="_blank">linkedin.com/in/mosshabasy</a>
+      <span>·</span>
+      <a href="https://github.com/Mosspheree" target="_blank">github.com/Mosspheree</a>
+      <span>·</span>
+      <a href="https://mosspheree.github.io/portfoliov2/" target="_blank">mosspheree.github.io/portfoliov2</a>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="r-section">
+      <div class="r-section-title">Professional Summary</div>
+      <div class="r-summary">
+        CS undergraduate with experience in <strong>applied ML/AI research</strong> and <strong>aerospace systems engineering</strong>. Trained and benchmarked small language models on GPU clusters using PyTorch and Hugging Face; built simulation tools for orbital mechanics and spacecraft integration testing. Proficient in Python, React, Node.js, and AWS — directly aligned with research in data science, simulation, and airspace operations.
+      </div>
+    </div>
+
+    <!-- AWARDS -->
+    <div class="r-section">
+      <div class="r-section-title">Awards &amp; Certifications</div>
+      <div class="r-award-row">
+        <div class="r-award-name">Presidential Academic Scholarship <em>| The George Washington University</em></div>
+        <div class="r-award-date">2022 – Present</div>
+      </div>
+      <div class="r-award-row">
+        <div class="r-award-name">Dean's List (SEAS) <em>| The George Washington University</em></div>
+        <div class="r-award-date">Spring 2023</div>
+      </div>
+      <div class="r-award-row">
+        <div class="r-award-name">AWS Academy Graduate: Cloud Foundations <em>| AWS Academy</em></div>
+        <div class="r-award-date">Feb 2025</div>
+      </div>
+      <div class="r-award-row">
+        <div class="r-award-name">JIS Higher Honor Roll <em>| Jubail International School</em></div>
+        <div class="r-award-date">2019 – 2022</div>
+      </div>
+      <div class="r-award-row">
+        <div class="r-award-name">EAI MobiQuitous 2025 — Presented "Tiny Models, Tough Limits" <em>| Shanghai (Online)</em></div>
+        <div class="r-award-date">Nov 2025</div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="r-section">
+      <div class="r-section-title">Technical Skills</div>
+      <div class="r-skills">
+        <div><span>Languages:</span> Python, JavaScript, C, C++, Java, Kotlin, SQL, HTML/CSS, Verilog HDL</div>
+        <div><span>AI/ML:</span> PyTorch, Hugging Face Transformers, Generative AI, model evaluation (accuracy/F1/latency/robustness)</div>
+        <div><span>Cloud:</span> AWS (EC2, Lambda, S3, RDS, DynamoDB, API Gateway), cloud-based data pipelines</div>
+        <div><span>Web/Viz:</span> React, Node.js, Flask, Bootstrap, MySQL, Three.js (3D), Canvas API</div>
+        <div><span>Tools:</span> Linux, Git, Quartus Prime, Icarus Verilog, HIL/SIL Testing, CI-style workflows</div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="r-section">
+      <div class="r-section-title">Experience</div>
+
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <div class="r-entry-title"><strong>Software Integration &amp; Testing Intern</strong> <em>| Astrobotic Technology (NASA CLPS)</em></div>
+          <div class="r-entry-date">Pittsburgh, PA · Aug 2025 – May 2026</div>
+        </div>
+        <ul class="r-bullets">
+          <li>Built and maintained <strong>HIL</strong> and <strong>SIL</strong> test automation for flight/avionics interfaces; expanded the HSS emulator with new protocol features and refactored 5+ emulators, reducing debug time by ~30%.</li>
+          <li>Updated DFS &amp; EFS systems, improving reliability and increasing test coverage by ~25%; collaborated cross-functionally across firmware and avionics teams.</li>
+        </ul>
+      </div>
+
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <div class="r-entry-title"><strong>AI Research Intern (REU: ASSET Program)</strong> <em>| National Science Foundation (NSF)</em></div>
+          <div class="r-entry-date">Miami, FL · May 2025 – Aug 2025</div>
+        </div>
+        <ul class="r-bullets">
+          <li>Trained and fine-tuned 5+ small language models (DistilBERT, MobileBERT, TinyBERT, Phi-3 Mini, TinyLLaMA) on FIU's Diamond GPU cluster using Python, PyTorch, and Hugging Face Transformers.</li>
+          <li>Built data engineering pipelines to benchmark models across 6+ metrics (accuracy, F1, latency, robustness), producing consolidated JSON/CSV reports for analysis and visualization.</li>
+          <li>Collaborated with faculty PI, postdocs, and PhD students; presented at EAI MobiQuitous 2025 — "Tiny Models, Tough Limits."</li>
+        </ul>
+      </div>
+
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <div class="r-entry-title"><strong>Web Assistant</strong> <em>| Institute for International Economic Policy (IIEP)</em></div>
+          <div class="r-entry-date">Washington, DC · Aug 2024 – Present</div>
+        </div>
+        <ul class="r-bullets">
+          <li>Maintained 80%+ of IIEP's website (Drupal/HTML/CSS); deployed 30+ articles monthly and improved navigation, contributing to a 15% drop in bounce rate.</li>
+        </ul>
+      </div>
+
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <div class="r-entry-title"><strong>Instructor — Coding/STEM for Kids</strong> <em>| Codeadvantage</em></div>
+          <div class="r-entry-date">Washington, DC · Dec 2024 – Present</div>
+        </div>
+        <ul class="r-bullets">
+          <li>Taught programming concepts (loops, conditionals, event-driven logic) to 10+ students via Minecraft: Education Edition and LEGO robotics.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="r-section">
+      <div class="r-section-title">Education</div>
+      <div class="r-edu-row">
+        <div>
+          <div class="r-edu-school">The George Washington University — Washington, DC</div>
+          <div class="r-edu-degree"><strong>B.S. in Computer Science</strong> &nbsp;|&nbsp; GPA: 3.60 / 4.0</div>
+        </div>
+        <div class="r-edu-date">Expected May 2027</div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="r-section">
+      <div class="r-section-title">Projects</div>
+
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <div class="r-entry-title"><strong>Kessler</strong> <em>| Three.js, SGP4, CelesTrak TLE Data, JavaScript</em></div>
+          <div class="r-entry-date">2025</div>
+        </div>
+        <ul class="r-bullets">
+          <li>Real-time 3D browser simulation of orbital debris using live TLE data and SGP4 propagation — the same standard used by NASA for satellite tracking. Zero backend, zero dependencies.</li>
+        </ul>
+      </div>
+
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <div class="r-entry-title"><strong>Codemedic</strong> <em>| C++17, libclang, Anthropic API, CMake</em></div>
+          <div class="r-entry-date">2025</div>
+        </div>
+        <ul class="r-bullets">
+          <li>Built a C/C++ compiler error fixer that isolates root-cause errors via dependency graph, synthesizes LLM patches, and recompiles to verify; supports batch mode, git auto-commit, and custom compiler flags.</li>
+        </ul>
+      </div>
+
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <div class="r-entry-title"><strong>Porkchop Plotter</strong> <em>| JavaScript, Lambert Solver, Keplerian Ephemeris, Canvas API</em></div>
+          <div class="r-entry-date">2025</div>
+        </div>
+        <ul class="r-bullets">
+          <li>Mission-grade interplanetary trajectory tool using a Lambert arc solver. Renders interactive C3 energy porkchop plots with optimal launch window detection; zero dependencies.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div><!-- end resume-card -->
+</div><!-- end page -->
+
+<footer>
+  © 2026 MOSTAFA ELSHABASY &nbsp;·&nbsp; WASHINGTON, DC &nbsp;·&nbsp; GWU CS CLASS OF 2027
+</footer>
+
+</body>
+</html>
