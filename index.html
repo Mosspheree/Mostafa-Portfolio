@@ -3,13 +3,35 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mostafa Elshabasy: Engineer</title>
+<title>Mostafa Elshabasy — Software Engineer, Researcher, Builder</title>
+<meta name="description" content="Mostafa Elshabasy — Software engineer and researcher at George Washington University. Flight-software integration on NASA CLPS, ML research published at EAI MobiQuitous 2025. Building systems that fly in space.">
+<meta name="author" content="Mostafa Elshabasy">
+<link rel="canonical" href="https://mosspheree.github.io/portfoliov2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mostafa Elshabasy — Software Engineer, Researcher, Builder">
+<meta property="og:description" content="Flight-software integration on NASA CLPS, ML research published at EAI MobiQuitous 2025. Building systems that fly in space and tools that make engineers faster.">
+<meta property="og:url" content="https://mosspheree.github.io/portfoliov2/">
+<meta property="og:image" content="https://mosspheree.github.io/portfoliov2/img/photo.jpg">
+<meta property="og:site_name" content="Mostafa Elshabasy">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mostafa Elshabasy — Software Engineer, Researcher, Builder">
+<meta name="twitter:description" content="Flight-software integration on NASA CLPS, ML research published at EAI MobiQuitous 2025. Building systems that fly in space.">
+<meta name="twitter:image" content="https://mosspheree.github.io/portfoliov2/img/photo.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23020408'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%2300d4ff' text-anchor='middle'>ME</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/nav.css">
 <link rel="stylesheet" href="css/hero.css">
 <link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/about.css">
 <link rel="stylesheet" href="css/experience.css">
 <link rel="stylesheet" href="css/projects.css">
 <link rel="stylesheet" href="css/skills.css">
@@ -17,18 +39,27 @@
 </head>
 <body>
 
+<!-- Skip to content -->
+<a href="#hero" class="skip-link">Skip to main content</a>
+
 <!-- Navigation -->
-<nav id="navbar">
-  <div class="nav-logo">ME</div>
-  <ul class="nav-links">
+<nav id="navbar" aria-label="Main navigation">
+  <div class="nav-logo" aria-hidden="true">ME</div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="resume.html">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-status">
-    <div class="status-dot"></div>
+  <div class="nav-status" aria-label="Currently available for opportunities">
+    <div class="status-dot" aria-hidden="true"></div>
     AVAILABLE FOR OPPORTUNITIES
   </div>
 </nav>
@@ -54,7 +85,7 @@
     </div>
   </div>
 
-  <svg class="hero-visual" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg class="hero-visual" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decorative orbital animation">
     <circle cx="200" cy="200" r="60" stroke="#00d4ff" stroke-width="0.5"/>
     <circle cx="200" cy="200" r="100" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="4 8"/>
     <circle cx="200" cy="200" r="150" stroke="#00d4ff" stroke-width="0.5"/>
@@ -92,6 +123,49 @@
     <div class="stat-label">GPA</div>
   </div>
 </div>
+
+<!-- About -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">00</span>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-content reveal">
+    <div class="about-photo-wrapper">
+      <img src="img/photo.jpg" alt="Mostafa Elshabasy at George Washington University" class="about-photo">
+    </div>
+    <div class="about-text">
+      <p class="about-bio">
+        I'm Mostafa — a junior Computer Science student at <strong>The George Washington University</strong> in Washington, DC.
+        I'm driven by the challenge of building reliable software for high-stakes environments, whether that's
+        <strong>flight software for a NASA lunar mission</strong> or <strong>benchmarking small language models for edge deployment</strong>.
+      </p>
+      <p class="about-bio">
+        Outside of engineering, I mentor first-year students, teach kids robotics and coding, and stay involved
+        in my campus community. I'm always looking for opportunities to learn, build, and collaborate on meaningful work.
+      </p>
+      <div class="about-details">
+        <div class="about-detail">
+          <span class="about-detail-label">Location</span>
+          <span class="about-detail-value">Washington, DC</span>
+        </div>
+        <div class="about-detail">
+          <span class="about-detail-label">University</span>
+          <span class="about-detail-value">GWU — SEAS '27</span>
+        </div>
+        <div class="about-detail">
+          <span class="about-detail-label">Focus</span>
+          <span class="about-detail-value">Systems, AI, Aerospace</span>
+        </div>
+        <div class="about-detail">
+          <span class="about-detail-label">Status</span>
+          <span class="about-detail-value" style="color: var(--green);">Open to Opportunities</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Experience -->
 <section id="experience">
@@ -144,6 +218,13 @@
     <a href="tel:+12025102396" class="btn btn-outline">202-510-2396</a>
   </div>
 </section>
+
+<!-- Back to top -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 4L4 12H16L10 4Z" fill="currentColor"/>
+  </svg>
+</button>
 
 <!-- Footer -->
 <footer>

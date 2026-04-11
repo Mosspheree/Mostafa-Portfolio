@@ -34,21 +34,21 @@ function renderProjects() {
         </div>
       </div>` : '';
     const extraLinks = [
-      p.paperLink ? `<a href="${p.paperLink}" target="_blank" class="project-link paper-link" onclick="event.stopPropagation()">Read Paper →</a>` : '',
-      p.liveLink  ? `<a href="${p.liveLink}"  target="_blank" class="project-link live-link"  onclick="event.stopPropagation()">Live Demo →</a>`  : '',
+      p.paperLink ? `<a href="${p.paperLink}" target="_blank" class="project-link paper-link" onclick="event.stopPropagation()" aria-label="Read paper for ${p.name}">Read Paper →</a>` : '',
+      p.liveLink  ? `<a href="${p.liveLink}"  target="_blank" class="project-link live-link"  onclick="event.stopPropagation()" aria-label="Live demo of ${p.name}">Live Demo →</a>`  : '',
     ].filter(Boolean).join('');
     const tags = p.tags.map(t => `<span class="tag tag-${t.color}">${t.label}</span>`).join('');
     if (p.featured) {
       return `
-        <div class="project-card featured reveal" onclick="window.open('${p.link}','_blank')" role="link" tabindex="0">
+        <div class="project-card featured reveal" onclick="window.open('${p.link}','_blank')" role="link" tabindex="0" aria-label="${p.name} — ${p.sub}. Click to view on GitHub.">
           <div class="project-content">
             <div class="project-num">${p.num}</div>
             <div class="project-name">${p.name}</div>
             <div class="project-sub">${p.sub}</div>
             <div class="project-desc">${p.desc}</div>
-            <div class="project-tags">${tags}</div>
+            <div class="project-tags" aria-label="Technologies used">${tags}</div>
             <div class="project-buttons">
-              <a href="${p.link}" target="_blank" class="project-link" onclick="event.stopPropagation()">View on GitHub →</a>
+              <a href="${p.link}" target="_blank" class="project-link" onclick="event.stopPropagation()" aria-label="View ${p.name} on GitHub">View on GitHub →</a>
               ${extraLinks}
             </div>
           </div>
@@ -56,14 +56,14 @@ function renderProjects() {
         </div>`;
     }
     return `
-      <div class="project-card reveal" onclick="window.open('${p.link}','_blank')" role="link" tabindex="0">
+      <div class="project-card reveal" onclick="window.open('${p.link}','_blank')" role="link" tabindex="0" aria-label="${p.name} — ${p.sub}. Click to view on GitHub.">
         <div class="project-num">${p.num}</div>
         <div class="project-name">${p.name}</div>
         <div class="project-sub">${p.sub}</div>
         <div class="project-desc">${p.desc}</div>
-        <div class="project-tags">${tags}</div>
+        <div class="project-tags" aria-label="Technologies used">${tags}</div>
         <div class="project-buttons">
-          <a href="${p.link}" target="_blank" class="project-link" onclick="event.stopPropagation()">View on GitHub →</a>
+          <a href="${p.link}" target="_blank" class="project-link" onclick="event.stopPropagation()" aria-label="View ${p.name} on GitHub">View on GitHub →</a>
           ${extraLinks}
         </div>
       </div>`;

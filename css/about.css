@@ -1,0 +1,97 @@
+/* ── about.css — About Me section ── */
+
+.about-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.about-photo-wrapper {
+  position: relative;
+}
+
+.about-photo-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 12px;
+  border: 1px solid var(--border2);
+  pointer-events: none;
+}
+
+.about-photo {
+  width: 280px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: grayscale(20%);
+  transition: filter 0.4s, box-shadow 0.4s;
+  display: block;
+}
+
+.about-photo:hover {
+  filter: grayscale(0%);
+  box-shadow: 0 0 40px rgba(0,212,255,0.2);
+}
+
+.about-bio {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.about-bio strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+.about-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.about-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-detail-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-detail-value {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .about-photo-wrapper {
+    justify-self: center;
+  }
+  .about-photo {
+    width: 200px;
+    height: 240px;
+  }
+  .about-details {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+}
