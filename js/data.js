@@ -124,7 +124,7 @@ const PROJECTS = [
     num: "FEATURED PROJECT",
     name: "Kessler",
     sub: "Space Debris Cascade Simulator",
-    desc: "Real-time 3D visualization of Kessler Syndrome using live TLE orbital data and SGP4 propagation — the same standard used by NASA. Select two real satellites, trigger a collision, and watch the debris cascade propagate across orbital shells in your browser. No API keys. No backend. Pure orbital mechanics.",
+    desc: "Real-time 3D visualization of Kessler Syndrome using live TLE orbital data and SGP4 propagation. The same standard used by NASA. Select two real satellites, trigger a collision, and watch the debris cascade propagate across orbital shells in your browser. No API keys. No backend. Pure orbital mechanics.",
     tags: [
       { label: "Three.js",                    color: "cyan"  },
       { label: "SGP4",                         color: "cyan"  },
@@ -139,7 +139,7 @@ const PROJECTS = [
     num: "PROJECT 02",
     name: "Porkchop Plotter",
     sub: "Interplanetary Launch Window Calculator",
-    desc: "Mission-grade interplanetary trajectory tool using a Lambert arc solver — the same math JPL uses for every planetary mission. Computes C3 energy landscapes across departure dates and flight times, renders an interactive porkchop plot, and identifies optimal launch windows. Zero dependencies, live in the browser.",
+    desc: "Mission-grade interplanetary trajectory tool using a Lambert arc solver. Again, the same math JPL uses for every planetary mission. Computes C3 energy landscapes across departure dates and flight times, renders an interactive porkchop plot, and identifies optimal launch windows. Zero dependencies, live in the browser.",
     tags: [
       { label: "Lambert Solver",        color: "cyan"  },
       { label: "Orbital Mechanics",     color: "cyan"  },
@@ -154,7 +154,7 @@ const PROJECTS = [
     num: "PROJECT 03",
     name: "Codemedic",
     sub: "AI Compiler Error Fixer",
-    desc: "C++ tool that compiles broken source files, builds a dependency graph to identify root causes among cascading errors, synthesizes minimal patches via LLM, applies them, and recompiles to verify — closing the loop automatically. Features batch mode, git auto-commit, and explain-only mode. The only tool that proves its fixes work.",
+    desc: "C++ tool that compiles broken source files, builds a dependency graph to identify root causes among cascading errors, synthesizes minimal patches via LLM, applies them, and recompiles to verify closing the loop automatically. Features batch mode, git auto-commit, and explain-only mode. The only tool that proves its fixes work.",
     tags: [
       { label: "C++17",              color: "cyan"  },
       { label: "libclang",           color: "cyan"  },
