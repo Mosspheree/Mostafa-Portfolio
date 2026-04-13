@@ -3,300 +3,66 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Resume — Mostafa Elshabasy</title>
-<meta name="description" content="Resume of Mostafa Elshabasy — CS undergraduate, NSF AI Research Intern, Astrobotic/NASA CLPS Software Integration Intern.">
+<title>Mostafa Elshabasy — Software Engineer, Researcher, Builder</title>
+<meta name="description" content="Mostafa Elshabasy — Software engineer and researcher at George Washington University. Flight-software integration on NASA CLPS, ML research published at EAI MobiQuitous 2025. Building systems that fly in space.">
+<meta name="author" content="Mostafa Elshabasy">
+<link rel="canonical" href="https://mosspheree.github.io/Mostafa-Portfolio/">
 
-<!-- Favicon (matches index.html) -->
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mostafa Elshabasy — Software Engineer, Researcher, Builder">
+<meta property="og:description" content="Flight-software integration on NASA CLPS, ML research published at EAI MobiQuitous 2025. Building systems that fly in space and tools that make engineers faster.">
+<meta property="og:url" content="https://mosspheree.github.io/Mostafa-Portfolio/">
+<meta property="og:image" content="https://mosspheree.github.io/Mostafa-Portfolio/img/photo.jpg.JPG">
+<meta property="og:site_name" content="Mostafa Elshabasy">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mostafa Elshabasy — Software Engineer, Researcher, Builder">
+<meta name="twitter:description" content="Flight-software integration on NASA CLPS, ML research published at EAI MobiQuitous 2025. Building systems that fly in space.">
+<meta name="twitter:image" content="https://mosspheree.github.io/Mostafa-Portfolio/img/photo.jpg.JPG">
+
+<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23020408'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%2300d4ff' text-anchor='middle'>ME</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 
-<!-- Pull in the same shared stylesheets as index.html -->
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/nav.css">
-
-<style>
-/* ── Resume-page-specific styles ── */
-/* All variables come from base.css */
-
-.page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 6rem 2rem 4rem;
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Page header — mirrors section-header pattern ── */
-.page-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.page-title-block { }
-
-.page-eyebrow {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  color: var(--cyan);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-/* Matches section-num from sections.css exactly */
-.page-num {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  color: var(--cyan);
-  letter-spacing: 2px;
-}
-
-/* Matches section-title from sections.css */
-.page-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  color: #fff;
-  letter-spacing: 2px;
-  line-height: 1;
-}
-
-/* Matches section-line from sections.css */
-.page-line {
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-  margin-left: 1.5rem;
-  align-self: center;
-}
-
-.btn-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #000;
-  background: var(--cyan);
-  border: none;
-  padding: 0.65rem 1.3rem;
-  border-radius: 2px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  white-space: nowrap;
-}
-.btn-download:hover {
-  background: #fff;
-  transform: translateY(-1px);
-  box-shadow: 0 0 30px rgba(0,212,255,0.4);
-}
-.btn-download svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-/* ── Resume card ── */
-.resume-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  padding: 2.5rem 3rem;
-  position: relative;
-  border-radius: 2px;
-}
-.resume-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--cyan), var(--green));
-  border-radius: 2px 2px 0 0;
-}
-
-/* ── Resume name / contact ── */
-.r-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.2rem;
-  color: #fff;
-  letter-spacing: 2px;
-}
-.r-contact {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--muted);
-  margin-top: 0.4rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem 0.8rem;
-}
-.r-contact a { color: var(--cyan); text-decoration: none; }
-.r-contact a:hover { text-decoration: underline; }
-
-/* ── Section headers — now match the numbered style from the main site ── */
-.r-section { margin-top: 1.6rem; }
-
-.r-section-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 0.85rem;
-}
-
-.r-section-num {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  color: var(--cyan);
-  letter-spacing: 2px;
-}
-
-.r-section-title {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--cyan);
-}
-
-.r-section-line {
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-/* ── Summary ── */
-.r-summary {
-  font-size: 0.82rem;
-  color: var(--text);
-  line-height: 1.6;
-}
-.r-summary strong { color: var(--green); font-weight: 500; }
-
-/* ── Skills ── */
-.r-skills { font-size: 0.8rem; line-height: 1.8; }
-.r-skills span { color: var(--green); font-weight: 500; }
-
-/* ── Experience / Projects entries ── */
-.r-entry { margin-bottom: 1rem; }
-.r-entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.2rem;
-}
-.r-entry-title {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: #fff;
-}
-.r-entry-title em {
-  font-weight: 400;
-  font-style: italic;
-  color: var(--muted);
-}
-.r-entry-date {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.62rem;
-  color: var(--muted);
-  white-space: nowrap;
-}
-.r-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 0.3rem 0 0 0;
-}
-.r-bullets li {
-  font-size: 0.79rem;
-  color: var(--text);
-  line-height: 1.55;
-  padding-left: 1rem;
-  position: relative;
-  margin-bottom: 0.25rem;
-}
-.r-bullets li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--cyan);
-}
-.r-bullets li strong { color: var(--green); font-weight: 500; font-style: italic; }
-
-/* ── Awards ── */
-.r-award-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.79rem;
-  padding: 0.22rem 0;
-  border-bottom: 1px solid rgba(0,212,255,0.05);
-}
-.r-award-row:last-child { border-bottom: none; }
-.r-award-name { font-weight: 500; color: #ddeeff; }
-.r-award-name em { font-weight: 300; color: var(--muted); font-style: normal; }
-.r-award-date { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); white-space: nowrap; }
-
-/* ── Education ── */
-.r-edu-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-}
-.r-edu-school { font-weight: 500; color: #fff; font-size: 0.82rem; }
-.r-edu-degree { font-size: 0.79rem; color: var(--text); margin-top: 0.1rem; }
-.r-edu-degree strong { color: var(--green); }
-.r-edu-date { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); }
-
-/* ── Staggered reveal delays for card sections ── */
-.resume-card .r-section:nth-child(1) { transition-delay: 0.05s; }
-.resume-card .r-section:nth-child(2) { transition-delay: 0.10s; }
-.resume-card .r-section:nth-child(3) { transition-delay: 0.15s; }
-.resume-card .r-section:nth-child(4) { transition-delay: 0.20s; }
-.resume-card .r-section:nth-child(5) { transition-delay: 0.25s; }
-.resume-card .r-section:nth-child(6) { transition-delay: 0.30s; }
-
-/* ── Mobile ── */
-@media (max-width: 600px) {
-  .resume-card { padding: 1.5rem 1.2rem; }
-  .page-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .page-line { display: none; }
-  .r-award-row { flex-direction: column; gap: 0.1rem; }
-  .r-edu-row { flex-direction: column; }
-}
-</style>
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/experience.css">
+<link rel="stylesheet" href="css/projects.css">
+<link rel="stylesheet" href="css/skills.css">
+<link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
 
-<!-- Gargantua (identical to index.html) -->
+<!-- Gargantua background -->
 <div class="gargantua" aria-hidden="true">
   <div class="accretion-disk"></div>
 </div>
 
-<!-- Skip link -->
-<a href="#resume-content" class="skip-link">Skip to resume</a>
+<!-- Skip to content -->
+<a href="#hero" class="skip-link">Skip to main content</a>
 
-<!-- Navigation (identical structure to index.html) -->
+<!-- Navigation -->
 <nav id="navbar" aria-label="Main navigation">
   <div class="nav-logo" aria-hidden="true">ME</div>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-    <span></span><span></span><span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
   <ul class="nav-links" id="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#experience">Experience</a></li>
-    <li><a href="index.html#projects">Projects</a></li>
-    <li><a href="index.html#skills">Skills</a></li>
-    <li><a href="resume.html" class="active">Resume</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-status" aria-label="Currently available for opportunities">
     <div class="status-dot" aria-hidden="true"></div>
@@ -304,276 +70,175 @@
   </div>
 </nav>
 
-<div class="page" id="resume-content">
-
-  <!-- Page header — mirrors the numbered section-header pattern -->
-  <div class="page-header reveal">
-    <div class="page-title-block">
-      <div class="page-eyebrow">
-        <span class="page-num">05</span>
-        <span>// curriculum vitae</span>
-      </div>
-      <div class="page-title">Resume</div>
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-tag">CS @ George Washington University</div>
+    <h1 class="hero-name">Mostafa<br><span>Elshabasy</span></h1>
+    <p class="hero-title">Software Engineer · Researcher · Builder</p>
+    <p class="hero-bio">
+      I build systems that fly in space and tools that make engineers faster.
+      From <strong>flight-software integration on NASA's CLPS mission</strong> to
+      <strong>ML research published at EAI MobiQuitous 2025</strong> — I work at the
+      intersection of systems engineering, AI, and aerospace.
+    </p>
+    <div class="hero-links">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="resume.html" class="btn btn-outline">Resume</a>
+      <a href="mailto:mossphere5@gmail.com" class="btn btn-outline">Get In Touch</a>
+      <a href="https://github.com/Mosspheree" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/mosshabasy" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <div class="page-line"></div>
-    <a href="Resume.pdf" download class="btn-download">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-        <polyline points="7 10 12 15 17 10"/>
-        <line x1="12" y1="15" x2="12" y2="3"/>
-      </svg>
-      Download PDF
-    </a>
   </div>
 
-  <div class="resume-card reveal">
+  <svg class="hero-visual" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decorative orbital animation">
+    <circle cx="200" cy="200" r="60" stroke="#00d4ff" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="100" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="4 8"/>
+    <circle cx="200" cy="200" r="150" stroke="#00d4ff" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="190" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="2 10"/>
+    <circle cx="200" cy="100" r="4" fill="#00d4ff"/>
+    <circle cx="350" cy="200" r="3" fill="#f5a623"/>
+    <circle cx="50" cy="200" r="2.5" fill="#00ff88"/>
+    <circle cx="200" cy="10" r="2" fill="#00d4ff"/>
+    <circle cx="200" cy="200" r="20" fill="#0a2a4a" stroke="#00d4ff" stroke-width="0.5"/>
+  </svg>
 
-    <!-- HEADING -->
-    <div class="r-name">Mostafa Elshabasy</div>
-    <div class="r-contact">
-      <span>Washington, DC, USA</span>
-      <span>·</span>
-      <span>202-510-2396</span>
-      <span>·</span>
-      <a href="mailto:mostafamoh2015@gwu.edu">mostafamoh2015@gwu.edu</a>
-      <span>·</span>
-      <a href="https://linkedin.com/in/mosshabasy" target="_blank" rel="noopener">linkedin.com/in/mosshabasy</a>
-      <span>·</span>
-      <a href="https://github.com/Mosspheree" target="_blank" rel="noopener">github.com/Mosspheree</a>
-      <span>·</span>
-      <a href="https://mosspheree.github.io/portfoliov2/" target="_blank" rel="noopener">mosspheree.github.io/portfoliov2</a>
+  <div class="hero-coords" id="hero-coords">
+    38.9072° N, 77.0369° W<br>
+    WASHINGTON, DC<br>
+    GPA 3.60 / 4.0
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Internships</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Published Paper</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">15+</div>
+    <div class="stat-label">Critical Bugs Fixed</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">3.60</div>
+    <div class="stat-label">GPA</div>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">00</span>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-content reveal">
+    <div class="about-photo-wrapper">
+      <img src="img/photo.jpg.JPG" alt="Mostafa Elshabasy at George Washington University" class="about-photo">
     </div>
-
-    <!-- SUMMARY -->
-    <div class="r-section">
-      <div class="r-section-header">
-        <span class="r-section-num">00</span>
-        <span class="r-section-title">Professional Summary</span>
-        <div class="r-section-line"></div>
-      </div>
-      <div class="r-summary">
-        CS undergraduate with experience in <strong>applied ML/AI research</strong> and <strong>aerospace systems engineering</strong>. Trained and benchmarked small language models on GPU clusters using PyTorch and Hugging Face; built simulation tools for orbital mechanics and spacecraft integration testing. Proficient in Python, React, Node.js, and AWS — directly aligned with research in data science, simulation, and airspace operations.
-      </div>
-    </div>
-
-    <!-- AWARDS -->
-    <div class="r-section">
-      <div class="r-section-header">
-        <span class="r-section-num">01</span>
-        <span class="r-section-title">Awards &amp; Certifications</span>
-        <div class="r-section-line"></div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">Presidential Academic Scholarship <em>| The George Washington University</em></div>
-        <div class="r-award-date">2022 – Present</div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">Dean's List (SEAS) <em>| The George Washington University</em></div>
-        <div class="r-award-date">Spring 2023</div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">AWS Academy Graduate: Cloud Foundations <em>| AWS Academy</em></div>
-        <div class="r-award-date">Feb 2025</div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">JIS Higher Honor Roll <em>| Jubail International School</em></div>
-        <div class="r-award-date">2019 – 2022</div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">EAI MobiQuitous 2025 — Presented "Tiny Models, Tough Limits" <em>| Shanghai (Online)</em></div>
-        <div class="r-award-date">Nov 2025</div>
-      </div>
-    </div>
-
-    <!-- SKILLS -->
-    <div class="r-section">
-      <div class="r-section-header">
-        <span class="r-section-num">02</span>
-        <span class="r-section-title">Technical Skills</span>
-        <div class="r-section-line"></div>
-      </div>
-      <div class="r-skills">
-        <div><span>Languages:</span> Python, JavaScript, C, C++, Java, Kotlin, SQL, HTML/CSS, Verilog HDL</div>
-        <div><span>AI/ML:</span> PyTorch, Hugging Face Transformers, Generative AI, model evaluation (accuracy/F1/latency/robustness)</div>
-        <div><span>Cloud:</span> AWS (EC2, Lambda, S3, RDS, DynamoDB, API Gateway), cloud-based data pipelines</div>
-        <div><span>Web/Viz:</span> React, Node.js, Flask, Bootstrap, MySQL, Three.js (3D), Canvas API</div>
-        <div><span>Tools:</span> Linux, Git, Quartus Prime, Icarus Verilog, HIL/SIL Testing, CI-style workflows</div>
-      </div>
-    </div>
-
-    <!-- EXPERIENCE -->
-    <div class="r-section">
-      <div class="r-section-header">
-        <span class="r-section-num">03</span>
-        <span class="r-section-title">Experience</span>
-        <div class="r-section-line"></div>
-      </div>
-
-      <div class="r-entry">
-        <div class="r-entry-header">
-          <div class="r-entry-title"><strong>Software Integration &amp; Testing Intern</strong> <em>| Astrobotic Technology (NASA CLPS)</em></div>
-          <div class="r-entry-date">Pittsburgh, PA · Aug 2025 – May 2026</div>
+    <div class="about-text">
+      <p class="about-bio">
+        Hi, my name is Mostafa and I am an Avionics Intern at Astrobotic under NASA CLPS Mission. I enjoy working on challenging problems such as developing robust space software in situations where reliability matters, be it creating <strong>flight software for a lunar mission at NASA</strong> or <strong>evaluating the performance of smaller language models on an edge device.</strong>
+      </p>
+      <p class="about-bio">
+        Apart from engineering problems, I am a mentor to SEAS freshman students, I play soccer weekly, enjoy biking around the city to discover new coffee spots that serve matcha (anything for matchas!), and an active member of my community by volunteering monthly at my city's local food pantry.
+      </p>
+      <div class="about-details">
+        <div class="about-detail">
+          <span class="about-detail-label">Location</span>
+          <span class="about-detail-value">Washington, DC</span>
         </div>
-        <ul class="r-bullets">
-          <li>Built and maintained <strong>HIL</strong> and <strong>SIL</strong> test automation for flight/avionics interfaces; expanded the HSS emulator with new protocol features and refactored 5+ emulators, reducing debug time by ~30%.</li>
-          <li>Updated DFS &amp; EFS systems, improving reliability and increasing test coverage by ~25%; collaborated cross-functionally across firmware and avionics teams.</li>
-        </ul>
-      </div>
-
-      <div class="r-entry">
-        <div class="r-entry-header">
-          <div class="r-entry-title"><strong>AI Research Intern (REU: ASSET Program)</strong> <em>| National Science Foundation (NSF)</em></div>
-          <div class="r-entry-date">Miami, FL · May 2025 – Aug 2025</div>
+        <div class="about-detail">
+          <span class="about-detail-label">University</span>
+          <span class="about-detail-value">GWU — SEAS '27</span>
         </div>
-        <ul class="r-bullets">
-          <li>Trained and fine-tuned 5+ small language models (DistilBERT, MobileBERT, TinyBERT, Phi-3 Mini, TinyLLaMA) on FIU's Diamond GPU cluster using Python, PyTorch, and Hugging Face Transformers.</li>
-          <li>Built data engineering pipelines to benchmark models across 6+ metrics (accuracy, F1, latency, robustness), producing consolidated JSON/CSV reports for analysis and visualization.</li>
-          <li>Collaborated with faculty PI, postdocs, and PhD students; presented at EAI MobiQuitous 2025 — "Tiny Models, Tough Limits."</li>
-        </ul>
-      </div>
-
-      <div class="r-entry">
-        <div class="r-entry-header">
-          <div class="r-entry-title"><strong>Web Assistant</strong> <em>| Institute for International Economic Policy (IIEP)</em></div>
-          <div class="r-entry-date">Washington, DC · Aug 2024 – Present</div>
+        <div class="about-detail">
+          <span class="about-detail-label">Focus</span>
+          <span class="about-detail-value">Systems, AI, Aerospace</span>
         </div>
-        <ul class="r-bullets">
-          <li>Maintained 80%+ of IIEP's website (Drupal/HTML/CSS); deployed 30+ articles monthly and improved navigation, contributing to a 15% drop in bounce rate.</li>
-        </ul>
-      </div>
-
-      <div class="r-entry">
-        <div class="r-entry-header">
-          <div class="r-entry-title"><strong>Instructor — Coding/STEM for Kids</strong> <em>| Codeadvantage</em></div>
-          <div class="r-entry-date">Washington, DC · Dec 2024 – Present</div>
+        <div class="about-detail">
+          <span class="about-detail-label">Status</span>
+          <span class="about-detail-value" style="color: var(--green);">Open to Opportunities</span>
         </div>
-        <ul class="r-bullets">
-          <li>Taught programming concepts (loops, conditionals, event-driven logic) to 10+ students via Minecraft: Education Edition and LEGO robotics.</li>
-        </ul>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- EDUCATION -->
-    <div class="r-section">
-      <div class="r-section-header">
-        <span class="r-section-num">04</span>
-        <span class="r-section-title">Education</span>
-        <div class="r-section-line"></div>
-      </div>
-      <div class="r-edu-row">
-        <div>
-          <div class="r-edu-school">The George Washington University — Washington, DC</div>
-          <div class="r-edu-degree"><strong>B.S. in Computer Science</strong> &nbsp;|&nbsp; GPA: 3.60 / 4.0</div>
-        </div>
-        <div class="r-edu-date">Expected May 2027</div>
-      </div>
-    </div>
+<!-- Experience -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline" id="timeline-container"></div>
+</section>
 
-    <!-- PROJECTS -->
-    <div class="r-section">
-      <div class="r-section-header">
-        <span class="r-section-num">05</span>
-        <span class="r-section-title">Projects</span>
-        <div class="r-section-line"></div>
-      </div>
+<!-- Projects -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid" id="projects-container"></div>
+</section>
 
-      <div class="r-entry">
-        <div class="r-entry-header">
-          <div class="r-entry-title"><strong>Kessler</strong> <em>| Three.js, SGP4, CelesTrak TLE Data, JavaScript</em></div>
-          <div class="r-entry-date">2025</div>
-        </div>
-        <ul class="r-bullets">
-          <li>Real-time 3D browser simulation of orbital debris using live TLE data and SGP4 propagation — the same standard used by NASA for satellite tracking. Zero backend, zero dependencies.</li>
-        </ul>
-      </div>
+<!-- Skills -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid" id="skills-container"></div>
+</section>
 
-      <div class="r-entry">
-        <div class="r-entry-header">
-          <div class="r-entry-title"><strong>Codemedic</strong> <em>| C++17, libclang, Anthropic API, CMake</em></div>
-          <div class="r-entry-date">2025</div>
-        </div>
-        <ul class="r-bullets">
-          <li>Built a C/C++ compiler error fixer that isolates root-cause errors via dependency graph, synthesizes LLM patches, and recompiles to verify; supports batch mode, git auto-commit, and custom compiler flags.</li>
-        </ul>
-      </div>
+<!-- Awards -->
+<section id="awards">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Awards</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="awards-grid" id="awards-container"></div>
+</section>
 
-      <div class="r-entry">
-        <div class="r-entry-header">
-          <div class="r-entry-title"><strong>Porkchop Plotter</strong> <em>| JavaScript, Lambert Solver, Keplerian Ephemeris, Canvas API</em></div>
-          <div class="r-entry-date">2025</div>
-        </div>
-        <ul class="r-bullets">
-          <li>Mission-grade interplanetary trajectory tool using a Lambert arc solver. Renders interactive C3 energy porkchop plots with optimal launch window detection; zero dependencies.</li>
-        </ul>
-      </div>
+<!-- Contact -->
+<section id="contact">
+  <h2 class="contact-title reveal">Let's<br><span>Connect</span></h2>
+  <p class="contact-sub reveal">Open to full-time roles, research collaborations, and internships</p>
+  <div class="contact-links reveal">
+    <a href="mailto:mossphere5@gmail.com" class="btn btn-primary">mossphere5@gmail.com</a>
+    <a href="https://linkedin.com/in/mosshabasy" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Mosspheree" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+    <a href="tel:+12025102396" class="btn btn-outline">202-510-2396</a>
+  </div>
+</section>
 
-    </div>
-
-  </div><!-- end resume-card -->
-</div><!-- end page -->
-
-<!-- Back to top (matches index.html) -->
+<!-- Back to top -->
 <button id="back-to-top" class="back-to-top" aria-label="Back to top">
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
     <path d="M10 4L4 12H16L10 4Z" fill="currentColor"/>
   </svg>
 </button>
 
-<!-- Footer (matches index.html) -->
+<!-- Footer -->
 <footer>
   <p>© 2026 MOSTAFA ELSHABASY</p>
   <p>WASHINGTON, DC · GWU CS · CLASS OF 2027</p>
   <p>BUILT WITH HTML · CSS · JS</p>
 </footer>
 
-<script>
-// Subset of main.js — only what's needed on the resume page
-document.addEventListener('DOMContentLoaded', () => {
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
 
-  // ── Scroll reveal (same observer as main.js) ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // ── Nav shrink + back-to-top visibility ──
-  const navbar   = document.getElementById('navbar');
-  const backToTop = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
-  });
-
-  if (backToTop) {
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }
-
-  // ── Hamburger menu ──
-  const hamburger = document.getElementById('nav-hamburger');
-  const navLinks  = document.getElementById('nav-links');
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
-});
-</script>
 </body>
 </html>
