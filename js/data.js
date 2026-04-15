@@ -181,18 +181,6 @@ const PROJECTS = [
   },
   {
     num: "PROJECT 05",
-    name: "Enigma",
-    sub: "WWII Cipher Machine Simulation",
-    desc: "Java simulation of the Enigma rotor encryption mechanism with a real-time GUI. Supports encrypting 1,000+ messages in real time. Tested with 20+ cases covering edge conditions in rotor stepping and reflector logic.",
-    tags: [
-      { label: "Java",          color: "cyan"  },
-      { label: "Swing GUI",     color: "amber" },
-      { label: "Cryptography",  color: "green" },
-    ],
-    link: "https://github.com/Mosspheree",
-  },
-  {
-    num: "PROJECT 06",
     name: "RISC-V RV32I Processor",
     sub: "3-Stage Pipelined CPU on Intel MAX 10 FPGA",
     desc: "Full 32-bit RISC-V CPU designed from scratch in Verilog HDL and targeting the Intel MAX 10 FPGA. Implements a 3-stage pipeline (Fetch, Decode, Execute/Writeback) with hazard detection, data forwarding, and a memory-mapped UART peripheral. Includes a bare-metal C runtime, linker script, and 5 self-checking testbenches with 19 passing assertions. Verified with Icarus Verilog simulation.",
