@@ -5,8 +5,10 @@
   gap: 2px;
 }
 .project-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
+  background: rgba(8, 14, 24, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.12);
   padding: 36px;
   position: relative;
   overflow: hidden;
@@ -21,16 +23,17 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: var(--cyan);
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s;
+  transition: transform 0.35s;
 }
 .project-card:hover::before { transform: scaleX(1); }
 .project-card:hover {
-  border-color: var(--border2);
-  background: var(--bg3);
-  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.28);
+  background: rgba(12, 20, 34, 0.75);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.06);
 }
 .project-num {
   font-family: 'Space Mono', monospace;
@@ -49,7 +52,7 @@
 .project-sub {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
-  color: var(--cyan);
+  color: var(--gold);
   letter-spacing: 2px;
   margin-bottom: 16px;
   text-transform: uppercase;
@@ -77,7 +80,7 @@
 .project-link {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
-  color: var(--cyan);
+  color: var(--gold);
   letter-spacing: 2px;
   text-transform: uppercase;
   display: inline-flex;
@@ -114,12 +117,13 @@
   align-items: center;
 }
 .project-card.featured::before {
-  background: linear-gradient(90deg, var(--cyan), var(--amber));
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
 }
 .featured-visual {
   aspect-ratio: 16/9;
-  background: var(--bg3);
-  border: 1px solid var(--border);
+  background: rgba(8, 14, 24, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -130,7 +134,7 @@
 .orbit-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(0,212,255,0.3);
+  border: 1px solid rgba(212,175,55,0.3);
   top: 50%; left: 50%;
   transform: translate(-50%,-50%);
 }
@@ -145,8 +149,8 @@
   position: absolute;
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan);
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
   top: 0; left: 50%;
   transform: translateX(-50%);
 }

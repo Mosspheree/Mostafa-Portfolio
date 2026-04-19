@@ -7,18 +7,20 @@
 }
 
 .skill-group {
-  background: var(--bg2);
-  border: 1px solid var(--border);
+  background: rgba(8, 14, 24, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
   padding: 28px;
   transition: border-color 0.2s;
 }
 
-.skill-group:hover { border-color: var(--border2); }
+.skill-group:hover { border-color: rgba(212, 175, 55, 0.25); }
 
 .skill-group-title {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
-  color: var(--cyan);
+  color: var(--gold);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -48,15 +50,17 @@
 }
 
 .award-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
+  background: rgba(8, 14, 24, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
   padding: 24px 28px;
   transition: border-color 0.2s, background 0.2s;
 }
 
 .award-card:hover {
-  border-color: var(--border2);
-  background: var(--bg3);
+  border-color: rgba(212, 175, 55, 0.25);
+  background: rgba(12, 20, 34, 0.7);
 }
 
 .award-icon {
@@ -78,7 +82,7 @@
 .award-org {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
-  color: var(--cyan);
+  color: var(--gold);
   letter-spacing: 1px;
   margin-bottom: 4px;
 }

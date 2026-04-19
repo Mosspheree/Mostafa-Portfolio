@@ -23,7 +23,7 @@
 <meta name="twitter:image" content="https://mosspheree.github.io/Mostafa-Portfolio/img/photo.jpg.JPG">
 
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23020408'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%2300d4ff' text-anchor='middle'>ME</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2306080b'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23D4AF37' text-anchor='middle'>ME</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -37,6 +37,7 @@
 <link rel="stylesheet" href="css/projects.css">
 <link rel="stylesheet" href="css/skills.css">
 <link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/visualizations.css">
 </head>
 <body>
 
@@ -72,6 +73,8 @@
 
 <!-- Hero -->
 <section id="hero">
+  <div class="hero-scanlines" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-tag">CS @ George Washington University</div>
     <h1 class="hero-name">Mostafa<br><span>Elshabasy</span></h1>
@@ -92,15 +95,15 @@
   </div>
 
   <svg class="hero-visual" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decorative orbital animation">
-    <circle cx="200" cy="200" r="60" stroke="#00d4ff" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="100" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="4 8"/>
-    <circle cx="200" cy="200" r="150" stroke="#00d4ff" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="190" stroke="#00d4ff" stroke-width="0.5" stroke-dasharray="2 10"/>
-    <circle cx="200" cy="100" r="4" fill="#00d4ff"/>
-    <circle cx="350" cy="200" r="3" fill="#f5a623"/>
+    <circle cx="200" cy="200" r="60" stroke="#D4AF37" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="100" stroke="#D4AF37" stroke-width="0.5" stroke-dasharray="4 8"/>
+    <circle cx="200" cy="200" r="150" stroke="#00d4ff" stroke-width="0.4" opacity="0.6"/>
+    <circle cx="200" cy="200" r="190" stroke="#D4AF37" stroke-width="0.5" stroke-dasharray="2 10"/>
+    <circle cx="200" cy="100" r="4" fill="#D4AF37"/>
+    <circle cx="350" cy="200" r="3" fill="#00d4ff"/>
     <circle cx="50" cy="200" r="2.5" fill="#00ff88"/>
-    <circle cx="200" cy="10" r="2" fill="#00d4ff"/>
-    <circle cx="200" cy="200" r="20" fill="#0a2a4a" stroke="#00d4ff" stroke-width="0.5"/>
+    <circle cx="200" cy="10" r="2" fill="#D4AF37"/>
+    <circle cx="200" cy="200" r="20" fill="#080c12" stroke="#D4AF37" stroke-width="0.5"/>
   </svg>
 
   <div class="hero-coords" id="hero-coords">
@@ -120,9 +123,11 @@
     <div class="stat-num">1</div>
     <div class="stat-label">Published Paper</div>
   </div>
-  <div class="stat-item reveal">
+  <div class="stat-item stat-diagnostic reveal">
     <div class="stat-num">15+</div>
-    <div class="stat-label">Critical Bugs Fixed</div>
+    <div class="stat-label">Mission-Critical Anomalies Resolved</div>
+    <div class="stat-diag-bar"><div class="stat-diag-fill"></div></div>
+    <div class="stat-diag-status">SYS DIAGNOSTIC: NOMINAL</div>
   </div>
   <div class="stat-item reveal">
     <div class="stat-num">3.60</div>
@@ -238,6 +243,7 @@
 
 <script src="js/data.js"></script>
 <script src="js/render.js"></script>
+<script src="js/visualizations.js"></script>
 <script src="js/main.js"></script>
 
 </body>

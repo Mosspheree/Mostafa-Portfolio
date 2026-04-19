@@ -23,7 +23,7 @@ nav.scrolled {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 22px;
   letter-spacing: 4px;
-  color: var(--cyan);
+  color: var(--gold);
 }
 
 .nav-links {
@@ -48,13 +48,13 @@ nav.scrolled {
   position: absolute;
   bottom: -4px; left: 0; right: 0;
   height: 1px;
-  background: var(--cyan);
+  background: var(--gold);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.2s;
 }
 
-.nav-links a:hover { color: var(--cyan); }
+.nav-links a:hover { color: var(--gold); }
 .nav-links a:hover::after { transform: scaleX(1); }
 
 .nav-status {
@@ -96,7 +96,7 @@ nav.scrolled {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--cyan);
+  background: var(--gold);
   transition: transform 0.3s, opacity 0.3s;
 }
 
@@ -143,8 +143,8 @@ nav.scrolled {
     transition: color 0.2s, border-color 0.2s;
   }
   .nav-links a:hover {
-    color: var(--cyan);
-    border-bottom-color: var(--cyan);
+    color: var(--gold);
+    border-bottom-color: var(--gold);
   }
   .nav-status { display: none; }
 }

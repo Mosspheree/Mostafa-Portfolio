@@ -1,0 +1,298 @@
+/* ── visualizations.css — interactive project & experience visuals ── */
+
+/* ─── Porkchop Energy Landscape ─── */
+.porkchop-viz {
+  background: rgba(5, 9, 16, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Space Mono', monospace;
+}
+
+.viz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.viz-label {
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.viz-status-blink {
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  animation: mc-blink 2s step-end infinite;
+}
+
+@keyframes mc-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+.porkchop-grid {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 2px;
+  height: 120px;
+  cursor: crosshair;
+  position: relative;
+  user-select: none;
+}
+
+.pk-cell {
+  border-radius: 1px;
+  transition: transform 0.1s, filter 0.1s;
+}
+
+.pk-cell:hover {
+  transform: scale(1.4);
+  filter: brightness(1.5);
+  z-index: 5;
+  position: relative;
+}
+
+.porkchop-axes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.axis-lbl {
+  font-size: 7px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+.pk-tooltip {
+  position: absolute;
+  background: rgba(5, 9, 16, 0.97);
+  border: 1px solid var(--gold);
+  padding: 8px 12px;
+  font-size: 8px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  pointer-events: none;
+  z-index: 20;
+  white-space: nowrap;
+  border-radius: 2px;
+  display: none;
+  line-height: 1.8;
+}
+
+.pk-tooltip.visible { display: block; }
+.pk-dv  { color: #ff6b35; }
+.pk-opt { color: var(--green); }
+
+/* ─── Astrobotic Logic Flow ─── */
+.logic-flow-wrap {
+  background: rgba(5, 9, 16, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 4px;
+  padding: 14px;
+  margin-top: 20px;
+  font-family: 'Space Mono', monospace;
+  overflow: hidden;
+  position: relative;
+}
+
+.lf-title {
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.flow-nodes {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0;
+}
+
+.flow-connector {
+  flex: 1;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.flow-packet {
+  position: absolute;
+  top: -2px;
+  width: 8px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 1px;
+  box-shadow: 0 0 6px var(--gold);
+  animation: pkt-flow 2.4s linear infinite;
+  opacity: 0;
+}
+
+.flow-connector:nth-child(2) .flow-packet { animation-delay: 0s; }
+.flow-connector:nth-child(4) .flow-packet { animation-delay: 0.6s; }
+.flow-connector:nth-child(6) .flow-packet { animation-delay: 1.2s; }
+.flow-connector:nth-child(8) .flow-packet { animation-delay: 1.8s; }
+
+@keyframes pkt-flow {
+  0%   { left: -10px; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.flow-node {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 7px;
+  color: var(--cyan);
+  letter-spacing: 0.8px;
+  text-align: center;
+  position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.flow-node.node-active {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.node-dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin: 0 auto 5px;
+  animation: node-pulse 2s ease-in-out infinite;
+}
+
+@keyframes node-pulse {
+  0%, 100% { transform: scale(1);   box-shadow: 0 0 0 0   rgba(212,175,55,0.6); opacity: 1; }
+  50%       { transform: scale(1.6); box-shadow: 0 0 0 5px rgba(212,175,55,0);   opacity: 0.7; }
+}
+
+.lf-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(212, 175, 55, 0.08);
+}
+
+.lf-stat {
+  font-size: 7px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+.lf-stat em {
+  color: var(--green);
+  font-style: normal;
+  margin-left: 4px;
+}
+
+/* ─── NASA Mission Timeline ─── */
+.mission-timeline-wrap {
+  background: rgba(5, 9, 16, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 4px;
+  padding: 14px;
+  margin-top: 16px;
+  font-family: 'Space Mono', monospace;
+  position: relative;
+}
+
+.mt-header {
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.mt-track {
+  position: relative;
+  padding-left: 22px;
+}
+
+.mt-rail {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.mt-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 0%;
+  background: linear-gradient(to bottom, var(--gold), rgba(0, 212, 255, 0.6));
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+  transition: height 1.2s ease;
+}
+
+.mt-milestone {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+  position: relative;
+}
+
+.mt-dot {
+  position: absolute;
+  left: -19px;
+  top: 9px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(5, 9, 16, 1);
+  transition: all 0.5s;
+  z-index: 1;
+}
+
+.mt-milestone.mt-reached .mt-dot {
+  background: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+.mt-name {
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: color 0.5s;
+}
+
+.mt-milestone.mt-reached .mt-name { color: var(--text); }
+
+.mt-phase {
+  font-size: 7px;
+  color: rgba(212, 175, 55, 0.3);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+  transition: color 0.5s;
+}
+
+.mt-milestone.mt-reached .mt-phase { color: var(--gold); }
