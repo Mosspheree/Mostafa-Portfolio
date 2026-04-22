@@ -158,6 +158,41 @@
 }
 .btn-download svg { width: 14px; height: 14px; flex-shrink: 0; }
 
+.btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: transparent;
+  border: 1px solid var(--cyan);
+  padding: 0.65rem 1.3rem;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.btn-print:hover {
+  background: var(--cyan);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0,212,255,0.3);
+}
+.btn-print:active {
+  transform: translateY(0);
+}
+.btn-print svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.btn-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 /* ── Resume card ── */
 .resume-card {
   background: var(--bg2);
@@ -199,13 +234,67 @@
 .r-contact a { color: var(--cyan); text-decoration: none; }
 .r-contact a:hover { text-decoration: underline; }
 
-/* ── Section headers — now match the numbered style from the main site ── */
-.r-section { 
+/* ── Expandable/collapsible sections ── */
+.r-section {
   margin-top: 1.6rem; 
   padding: 1rem;
   border-radius: 4px;
   transition: background 0.3s ease, border-left 0.3s ease, padding-left 0.3s ease;
   border-left: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+}
+.r-section[aria-expanded="false"] .r-section-content {
+  display: none;
+}
+.r-section[aria-expanded="false"] .r-section-toggle svg {
+  transform: rotate(-90deg);
+}
+.r-section-toggle {
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+.r-section-toggle svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s ease;
+}
+.r-section:hover .r-section-toggle,
+.r-section:focus .r-section-toggle {
+  border-color: var(--cyan);
+  background: rgba(0,212,255,0.1);
+}
+.r-section-toggle:focus {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Keyboard focus visible */
+.r-section:focus {
+  outline: none;
+}
+.r-section:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Active/toggled state */
+.r-section[aria-expanded="true"] {
+  border-left-color: var(--cyan);
+  background: rgba(0,212,255,0.02);
+}
+.r-section[aria-expanded="true"] .r-section-num {
+  color: var(--cyan);
 }
 .r-section:hover {
   background: rgba(0,212,255,0.02);
@@ -363,6 +452,37 @@
   .page-line { display: none; }
   .r-award-row { flex-direction: column; gap: 0.1rem; }
   .r-edu-row { flex-direction: column; }
+  .btn-group { flex-direction: column; width: 100%; }
+  .btn-download, .btn-print { width: 100%; justify-content: center; }
+}
+
+/* ── Print styles ── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .gargantua, .cursor, .cursor-dot, .nav-hamburger, #back-to-top, .btn-group, footer, .skip-link { display: none !important; }
+  .page { max-width: 100%; padding: 0; margin: 0; }
+  .page-header { flex-wrap: wrap; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #ccc; }
+  .page-title { color: #000 !important; font-size: 1.5rem; }
+  .page-eyebrow { color: #333 !important; }
+  .page-line, .r-section-line, .r-section-toggle { display: none !important; }
+  .resume-card { background: #fff !important; border: none !important; padding: 0 !important; box-shadow: none !important; }
+  .resume-card::before { display: none; }
+  .r-section { border-left: none !important; padding: 0.5rem 0 !important; margin-top: 0.5rem !important; }
+  .r-section[aria-expanded="false"] { display: block !important; }
+  .r-section[aria-expanded="false"] .r-section-content { display: block !important; }
+  .r-name { color: #000 !important; }
+  .r-contact { color: #333 !important; }
+  .r-contact a { color: #000 !important; }
+  .r-section-num { color: #333 !important; }
+  .r-section-title { color: #000 !important; }
+  .r-summary, .r-skills, .r-bullets, .r-edu-degree, .r-entry-title { color: #000 !important; }
+  .r-bullets li::before { color: #333 !important; }
+  .r-section:hover { background: none !important; padding-left: 0 !important; }
+  .r-award-row, .r-edu-row { padding: 0.25rem 0 !important; border-bottom: 1px solid #eee; }
+  .r-award-row:hover, .r-edu-row:hover { background: none !important; padding-left: 0 !important; }
+  a { text-decoration: none !important; }
+  .r-section-header { border-bottom-color: #ccc !important; }
 }
 </style>
 </head>
@@ -409,14 +529,24 @@
       <div class="page-title">Resume</div>
     </div>
     <div class="page-line"></div>
-    <a href="Resume.pdf" download class="btn-download">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-        <polyline points="7 10 12 15 17 10"/>
-        <line x1="12" y1="15" x2="12" y2="3"/>
-      </svg>
-      Download PDF
-    </a>
+    <div class="btn-group">
+      <button class="btn-print" id="btn-print" aria-label="Print resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        Print
+      </button>
+      <a href="Resume.pdf" download class="btn-download" aria-label="Download PDF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download PDF
+      </a>
+    </div>
   </div>
 
   <div class="resume-card reveal">
@@ -438,69 +568,96 @@
     </div>
 
     <!-- SUMMARY -->
-    <div class="r-section">
+    <div class="r-section" id="section-summary" role="button" aria-expanded="true" tabindex="0">
+      <button class="r-section-toggle" aria-label="Toggle section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
       <div class="r-section-header">
         <span class="r-section-num">00</span>
         <span class="r-section-title">Professional Summary</span>
         <div class="r-section-line"></div>
       </div>
-      <div class="r-summary">
-        CS undergraduate with experience in <strong>applied ML/AI research</strong> and <strong>aerospace systems engineering</strong>. Trained and benchmarked small language models on GPU clusters using PyTorch and Hugging Face; built simulation tools for orbital mechanics and spacecraft integration testing. Proficient in Python, React, Node.js, and AWS — directly aligned with research in data science, simulation, and airspace operations.
+      <div class="r-section-content">
+        <div class="r-summary">
+          CS undergraduate with experience in <strong>applied ML/AI research</strong> and <strong>aerospace systems engineering</strong>. Trained and benchmarked small language models on GPU clusters using PyTorch and Hugging Face; built simulation tools for orbital mechanics and spacecraft integration testing. Proficient in Python, React, Node.js, and AWS — directly aligned with research in data science, simulation, and airspace operations.
+        </div>
       </div>
     </div>
 
     <!-- AWARDS -->
-    <div class="r-section">
+    <div class="r-section" id="section-awards" role="button" aria-expanded="true" tabindex="0">
+      <button class="r-section-toggle" aria-label="Toggle section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
       <div class="r-section-header">
         <span class="r-section-num">01</span>
         <span class="r-section-title">Awards &amp; Certifications</span>
         <div class="r-section-line"></div>
       </div>
-      <div class="r-award-row">
-        <div class="r-award-name">Presidential Academic Scholarship <em>| The George Washington University</em></div>
-        <div class="r-award-date">2022 – Present</div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">Dean's List (SEAS) <em>| The George Washington University</em></div>
-        <div class="r-award-date">Spring 2023</div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">AWS Academy Graduate: Cloud Foundations <em>| AWS Academy</em></div>
-        <div class="r-award-date">Feb 2025</div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">JIS Higher Honor Roll <em>| Jubail International School</em></div>
-        <div class="r-award-date">2019 – 2022</div>
-      </div>
-      <div class="r-award-row">
-        <div class="r-award-name">EAI MobiQuitous 2025 — Presented "Tiny Models, Tough Limits" <em>| Shanghai (Online)</em></div>
-        <div class="r-award-date">Nov 2025</div>
+      <div class="r-section-content">
+        <div class="r-award-row">
+          <div class="r-award-name">Presidential Academic Scholarship <em>| The George Washington University</em></div>
+          <div class="r-award-date">2022 – Present</div>
+        </div>
+        <div class="r-award-row">
+          <div class="r-award-name">Dean's List (SEAS) <em>| The George Washington University</em></div>
+          <div class="r-award-date">Spring 2023</div>
+        </div>
+        <div class="r-award-row">
+          <div class="r-award-name">AWS Academy Graduate: Cloud Foundations <em>| AWS Academy</em></div>
+          <div class="r-award-date">Feb 2025</div>
+        </div>
+        <div class="r-award-row">
+          <div class="r-award-name">JIS Higher Honor Roll <em>| Jubail International School</em></div>
+          <div class="r-award-date">2019 – 2022</div>
+        </div>
+        <div class="r-award-row">
+          <div class="r-award-name">EAI MobiQuitous 2025 — Presented "Tiny Models, Tough Limits" <em>| Shanghai (Online)</em></div>
+          <div class="r-award-date">Nov 2025</div>
+        </div>
       </div>
     </div>
 
     <!-- SKILLS -->
-    <div class="r-section">
+    <div class="r-section" id="section-skills" role="button" aria-expanded="true" tabindex="0">
+      <button class="r-section-toggle" aria-label="Toggle section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
       <div class="r-section-header">
         <span class="r-section-num">02</span>
         <span class="r-section-title">Technical Skills</span>
         <div class="r-section-line"></div>
       </div>
-      <div class="r-skills">
-        <div><span>Languages:</span> Python, JavaScript, C, C++, Java, Kotlin, SQL, HTML/CSS, Verilog HDL</div>
-        <div><span>AI/ML:</span> PyTorch, Hugging Face Transformers, Generative AI, model evaluation (accuracy/F1/latency/robustness)</div>
-        <div><span>Cloud:</span> AWS (EC2, Lambda, S3, RDS, DynamoDB, API Gateway), cloud-based data pipelines</div>
-        <div><span>Web/Viz:</span> React, Node.js, Flask, Bootstrap, MySQL, Three.js (3D), Canvas API</div>
-        <div><span>Tools:</span> Linux, Git, Quartus Prime, Icarus Verilog, HIL/SIL Testing, CI-style workflows</div>
+      <div class="r-section-content">
+        <div class="r-skills">
+          <div><span>Languages:</span> Python, JavaScript, C, C++, Java, Kotlin, SQL, HTML/CSS, Verilog HDL</div>
+          <div><span>AI/ML:</span> PyTorch, Hugging Face Transformers, Generative AI, model evaluation (accuracy/F1/latency/robustness)</div>
+          <div><span>Cloud:</span> AWS (EC2, Lambda, S3, RDS, DynamoDB, API Gateway), cloud-based data pipelines</div>
+          <div><span>Web/Viz:</span> React, Node.js, Flask, Bootstrap, MySQL, Three.js (3D), Canvas API</div>
+          <div><span>Tools:</span> Linux, Git, Quartus Prime, Icarus Verilog, HIL/SIL Testing, CI-style workflows</div>
+        </div>
       </div>
     </div>
 
     <!-- EXPERIENCE -->
-    <div class="r-section">
+    <div class="r-section" id="section-experience" role="button" aria-expanded="true" tabindex="0">
+      <button class="r-section-toggle" aria-label="Toggle section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
       <div class="r-section-header">
         <span class="r-section-num">03</span>
         <span class="r-section-title">Experience</span>
         <div class="r-section-line"></div>
       </div>
+      <div class="r-section-content">
 
       <div class="r-entry">
         <div class="r-entry-header">
@@ -547,28 +704,41 @@
     </div>
 
     <!-- EDUCATION -->
-    <div class="r-section">
+    <div class="r-section" id="section-education" role="button" aria-expanded="true" tabindex="0">
+      <button class="r-section-toggle" aria-label="Toggle section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
       <div class="r-section-header">
         <span class="r-section-num">04</span>
         <span class="r-section-title">Education</span>
         <div class="r-section-line"></div>
       </div>
-      <div class="r-edu-row">
-        <div>
-          <div class="r-edu-school">The George Washington University — Washington, DC</div>
-          <div class="r-edu-degree"><strong>B.S. in Computer Science</strong> &nbsp;|&nbsp; GPA: 3.60 / 4.0</div>
+      <div class="r-section-content">
+        <div class="r-edu-row">
+          <div>
+            <div class="r-edu-school">The George Washington University — Washington, DC</div>
+            <div class="r-edu-degree"><strong>B.S. in Computer Science</strong> &nbsp;|&nbsp; GPA: 3.60 / 4.0</div>
+          </div>
+          <div class="r-edu-date">Expected May 2027</div>
         </div>
-        <div class="r-edu-date">Expected May 2027</div>
       </div>
     </div>
 
     <!-- PROJECTS -->
-    <div class="r-section">
+    <div class="r-section" id="section-projects" role="button" aria-expanded="true" tabindex="0">
+      <button class="r-section-toggle" aria-label="Toggle section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
       <div class="r-section-header">
         <span class="r-section-num">05</span>
         <span class="r-section-title">Projects</span>
         <div class="r-section-line"></div>
       </div>
+      <div class="r-section-content">
 
       <div class="r-entry">
         <div class="r-entry-header">
@@ -622,6 +792,38 @@
 <script>
 // Resume page JS - matches enhanced main.js functionality
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Expandable/collapsible sections ──
+  document.querySelectorAll('.r-section').forEach(section => {
+    const toggle = section.querySelector('.r-section-toggle');
+    const handleToggle = () => {
+      const isExpanded = section.getAttribute('aria-expanded') === 'true';
+      section.setAttribute('aria-expanded', !isExpanded);
+    };
+    
+    if (toggle) {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        handleToggle();
+      });
+    }
+    
+    section.addEventListener('click', handleToggle);
+    section.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleToggle();
+      }
+    });
+  });
+
+  // ── Print button ──
+  const printBtn = document.getElementById('btn-print');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
 
   // ── Scroll reveal (same observer as main.js) ──
   const observer = new IntersectionObserver((entries) => {
