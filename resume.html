@@ -20,6 +20,42 @@
 /* ── Resume-page-specific styles ── */
 /* All variables come from base.css */
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom cursor for resume page */
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor.hover {
+  width: 40px;
+  height: 40px;
+  border-color: var(--amber);
+  background: rgba(245,166,35,0.1);
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
 .page {
   max-width: 900px;
   margin: 0 auto;
@@ -36,6 +72,7 @@
   margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.8s ease both;
 }
 
 .page-title-block { }
@@ -93,13 +130,31 @@
   border-radius: 2px;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition: all 0.3s ease;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+.btn-download::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+.btn-download:hover::before {
+  width: 300px; height: 300px;
 }
 .btn-download:hover {
   background: #fff;
-  transform: translateY(-1px);
-  box-shadow: 0 0 30px rgba(0,212,255,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0,212,255,0.4), 0 10px 40px rgba(0,0,0,0.3);
+}
+.btn-download:active {
+  transform: translateY(0);
 }
 .btn-download svg { width: 14px; height: 14px; flex-shrink: 0; }
 
@@ -110,6 +165,7 @@
   padding: 2.5rem 3rem;
   position: relative;
   border-radius: 2px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .resume-card::before {
   content: '';
@@ -118,6 +174,10 @@
   height: 2px;
   background: linear-gradient(90deg, var(--cyan), var(--green));
   border-radius: 2px 2px 0 0;
+}
+.resume-card:hover {
+  border-color: var(--border2);
+  box-shadow: 0 0 40px rgba(0,212,255,0.05);
 }
 
 /* ── Resume name / contact ── */
@@ -140,7 +200,18 @@
 .r-contact a:hover { text-decoration: underline; }
 
 /* ── Section headers — now match the numbered style from the main site ── */
-.r-section { margin-top: 1.6rem; }
+.r-section { 
+  margin-top: 1.6rem; 
+  padding: 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease, border-left 0.3s ease, padding-left 0.3s ease;
+  border-left: 2px solid transparent;
+}
+.r-section:hover {
+  background: rgba(0,212,255,0.02);
+  border-left-color: var(--cyan);
+  padding-left: 1.2rem;
+}
 
 .r-section-header {
   display: flex;
@@ -149,6 +220,10 @@
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
   margin-bottom: 0.85rem;
+  transition: border-color 0.3s ease;
+}
+.r-section:hover .r-section-header {
+  border-bottom-color: var(--border2);
 }
 
 .r-section-num {
@@ -156,6 +231,10 @@
   font-size: 0.55rem;
   color: var(--muted);
   letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+.r-section:hover .r-section-num {
+  color: var(--cyan);
 }
 
 .r-section-title {
@@ -235,13 +314,21 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.79rem;
-  padding: 0.22rem 0;
+  padding: 0.22rem 0.5rem;
   border-bottom: 1px solid rgba(0,212,255,0.05);
+  border-radius: 2px;
+  transition: background 0.2s ease, padding-left 0.3s ease;
 }
 .r-award-row:last-child { border-bottom: none; }
-.r-award-name { font-weight: 500; color: #ddeeff; }
+.r-award-row:hover {
+  background: rgba(0,212,255,0.03);
+  padding-left: 0.8rem;
+}
+.r-award-name { font-weight: 500; color: #ddeeff; transition: color 0.2s ease; }
+.r-award-row:hover .r-award-name { color: #fff; }
 .r-award-name em { font-weight: 300; color: var(--muted); font-style: normal; }
-.r-award-date { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); white-space: nowrap; }
+.r-award-date { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); white-space: nowrap; transition: color 0.2s ease; }
+.r-award-row:hover .r-award-date { color: var(--cyan); }
 
 /* ── Education ── */
 .r-edu-row {
@@ -250,8 +337,13 @@
   align-items: baseline;
   flex-wrap: wrap;
   gap: 0.3rem;
+  padding: 0.5rem;
+  border-radius: 2px;
+  transition: background 0.2s ease;
 }
-.r-edu-school { font-weight: 500; color: #fff; font-size: 0.82rem; }
+.r-edu-row:hover { background: rgba(0,212,255,0.03); }
+.r-edu-school { font-weight: 500; color: #fff; font-size: 0.82rem; transition: color 0.2s ease; }
+.r-edu-row:hover .r-edu-school { color: var(--cyan); }
 .r-edu-degree { font-size: 0.79rem; color: var(--text); margin-top: 0.1rem; }
 .r-edu-degree strong { color: var(--green); }
 .r-edu-date { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); }
@@ -281,6 +373,10 @@
   <div class="accretion-disk"></div>
 </div>
 
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursor-dot"></div>
+
 <!-- Skip link -->
 <a href="#resume-content" class="skip-link">Skip to resume</a>
 
@@ -298,7 +394,7 @@
     <li><a href="resume.html" class="active">Resume</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
-  
+  <div class="nav-progress" id="nav-progress"></div>
 </nav>
 
 <div class="page" id="resume-content">
@@ -524,7 +620,7 @@
 </footer>
 
 <script>
-// Subset of main.js — only what's needed on the resume page
+// Resume page JS - matches enhanced main.js functionality
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── Scroll reveal (same observer as main.js) ──
@@ -538,12 +634,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ── Nav shrink + back-to-top visibility ──
-  const navbar   = document.getElementById('navbar');
-  const backToTop = document.getElementById('back-to-top');
+  // ── Nav shrink + scroll progress + back-to-top visibility ──
+  const navbar    = document.getElementById('navbar');
+  const backToTop  = document.getElementById('back-to-top');
+  const navProgress = document.getElementById('nav-progress');
+  
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
     if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
+    
+    // Scroll progress indicator
+    if (navProgress) {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      navProgress.style.width = scrolled + '%';
+    }
   });
 
   if (backToTop) {
@@ -569,6 +675,83 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // ── Custom cursor ──
+  const cursor = document.getElementById('cursor');
+  const cursorDot = document.getElementById('cursor-dot');
+  
+  if (cursor && cursorDot) {
+    let cursorX = 0, cursorY = 0;
+    let dotX = 0, dotY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+    });
+
+    // Smooth cursor animation
+    const animateCursor = () => {
+      dotX += (cursorX - dotX) * 0.2;
+      dotY += (cursorY - dotY) * 0.2;
+      
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      cursorDot.style.left = dotX + 'px';
+      cursorDot.style.top = dotY + 'px';
+      
+      requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+
+    // Hover effect for interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .resume-card, .btn-download, .r-section');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // Hide cursor on mobile
+    if ('ontouchstart' in window) {
+      cursor.style.display = 'none';
+      cursorDot.style.display = 'none';
+    }
+  }
+
+  // ── Download button hover effect ──
+  const downloadBtn = document.querySelector('.btn-download');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('mouseenter', () => {
+      downloadBtn.style.transform = 'translateY(-2px)';
+      downloadBtn.style.boxShadow = '0 0 30px rgba(0,212,255,0.4), 0 10px 40px rgba(0,0,0,0.3)';
+    });
+    downloadBtn.addEventListener('mouseleave', () => {
+      downloadBtn.style.transform = '';
+      downloadBtn.style.boxShadow = '';
+    });
+  }
+
+  // ── Smooth scroll for all anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Resume card section hover effects ──
+  document.querySelectorAll('.r-section').forEach(section => {
+    section.addEventListener('mouseenter', () => {
+      section.style.borderLeftColor = 'var(--cyan)';
+      section.style.paddingLeft = '12px';
+    });
+    section.addEventListener('mouseleave', () => {
+      section.style.borderLeftColor = '';
+      section.style.paddingLeft = '';
+    });
+  });
 
 });
 </script>
