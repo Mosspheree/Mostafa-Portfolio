@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Nav shrink on scroll
+  // Nav shrink on scroll + scroll progress
   const navbar = document.getElementById('navbar');
   const backToTop = document.getElementById('back-to-top');
+  const navProgress = document.getElementById('nav-progress');
 
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY > 60;
@@ -28,6 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Back to top visibility
     if (backToTop) {
       backToTop.classList.toggle('visible', window.scrollY > 400);
+    }
+
+    // Scroll progress indicator
+    if (navProgress) {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      navProgress.style.width = scrolled + '%';
     }
   });
 
@@ -110,5 +119,78 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Active nav link highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('href') === '#' + current) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // Hero visual parallax on mouse move
+  const heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual) {
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      heroVisual.style.transform = `translateY(-50%) rotate(${x}deg) translateX(${y}px)`;
+    });
+  }
+
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const cursorDot = document.getElementById('cursor-dot');
+  
+  if (cursor && cursorDot) {
+    let cursorX = 0, cursorY = 0;
+    let dotX = 0, dotY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+    });
+
+    // Smooth cursor animation
+    const animateCursor = () => {
+      dotX += (cursorX - dotX) * 0.2;
+      dotY += (cursorY - dotY) * 0.2;
+      
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      cursorDot.style.left = dotX + 'px';
+      cursorDot.style.top = dotY + 'px';
+      
+      requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+
+    // Hover effect for interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-group, .award-card, .stat-item');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // Hide cursor on mobile
+    if ('ontouchstart' in window) {
+      cursor.style.display = 'none';
+      cursorDot.style.display = 'none';
+    }
+  }
 
 });

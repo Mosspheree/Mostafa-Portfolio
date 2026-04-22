@@ -10,10 +10,27 @@
   background: var(--bg2);
   border: 1px solid var(--border);
   padding: 28px;
-  transition: border-color 0.2s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.skill-group:hover { border-color: var(--border2); }
+.skill-group::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: var(--cyan);
+  transition: height 0.3s ease;
+}
+
+.skill-group:hover { 
+  border-color: var(--border2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.skill-group:hover::before { height: 100%; }
 
 .skill-group-title {
   font-family: 'Space Mono', monospace;

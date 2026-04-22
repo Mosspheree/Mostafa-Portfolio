@@ -18,6 +18,27 @@
   border-radius: 12px;
   border: 1px solid var(--border2);
   pointer-events: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-photo-wrapper:hover::before {
+  border-color: var(--cyan);
+  box-shadow: 0 0 30px rgba(0,212,255,0.2);
+}
+
+.about-photo-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0,212,255,0.1), transparent, rgba(245,166,35,0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.about-photo-wrapper:hover::after {
+  opacity: 1;
 }
 
 .about-photo {
@@ -26,13 +47,14 @@
   object-fit: cover;
   border-radius: 8px;
   filter: grayscale(20%);
-  transition: filter 0.4s, box-shadow 0.4s;
+  transition: filter 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
   display: block;
 }
 
 .about-photo:hover {
   filter: grayscale(0%);
-  box-shadow: 0 0 40px rgba(0,212,255,0.2);
+  box-shadow: 0 0 40px rgba(0,212,255,0.25), 0 20px 40px rgba(0,0,0,0.3);
+  transform: scale(1.02);
 }
 
 .about-bio {
@@ -41,11 +63,31 @@
   line-height: 1.8;
   margin-bottom: 20px;
   font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.about-bio:hover {
+  color: #fff;
 }
 
 .about-bio strong {
   color: #fff;
   font-weight: 500;
+  position: relative;
+}
+
+.about-bio strong::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), transparent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.about-bio:hover strong::after {
+  transform: scaleX(1);
 }
 
 .about-details {
@@ -61,6 +103,14 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding: 12px;
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.about-detail:hover {
+  background: rgba(0,212,255,0.03);
+  transform: translateX(4px);
 }
 
 .about-detail-label {
@@ -75,6 +125,11 @@
   font-size: 14px;
   color: #fff;
   font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.about-detail:hover .about-detail-value {
+  color: var(--cyan);
 }
 
 @media (max-width: 768px) {
@@ -93,5 +148,9 @@
   .about-details {
     grid-template-columns: 1fr 1fr;
     text-align: left;
+  }
+  .about-photo-wrapper::after,
+  .about-bio strong::after {
+    display: none;
   }
 }

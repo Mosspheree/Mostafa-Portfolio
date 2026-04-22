@@ -10,7 +10,7 @@
   padding: 36px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -24,13 +24,14 @@
   background: var(--cyan);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 .project-card:hover::before { transform: scaleX(1); }
 .project-card:hover {
   border-color: var(--border2);
   background: var(--bg3);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(0,212,255,0.05);
 }
 .project-num {
   font-family: 'Space Mono', monospace;

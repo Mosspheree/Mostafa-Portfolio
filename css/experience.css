@@ -12,11 +12,12 @@
   gap: 0 32px;
   padding: 32px 0;
   border-bottom: 1px solid var(--border);
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .timeline-item:hover {
   background: rgba(0,212,255,0.02);
+  transform: translateX(4px);
 }
 
 .timeline-date {
@@ -27,12 +28,22 @@
   padding-top: 4px;
   text-align: right;
   line-height: 1.6;
+  transition: color 0.3s;
+}
+
+.timeline-item:hover .timeline-date {
+  color: var(--cyan);
 }
 
 .timeline-line {
   width: 1px;
   background: var(--border2);
   position: relative;
+  transition: background 0.3s;
+}
+
+.timeline-item:hover .timeline-line {
+  background: var(--cyan);
 }
 
 .timeline-line::before {
@@ -45,6 +56,12 @@
   border-radius: 50%;
   background: var(--cyan);
   box-shadow: 0 0 10px var(--cyan);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-item:hover .timeline-line::before {
+  transform: translateX(-50%) scale(1.3);
+  box-shadow: 0 0 20px var(--cyan);
 }
 
 .timeline-company {

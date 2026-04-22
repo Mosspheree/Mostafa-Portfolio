@@ -8,6 +8,16 @@
   max-width: 100%;
 }
 
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,212,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 .contact-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(48px, 8vw, 96px);
@@ -15,9 +25,14 @@
   color: #fff;
   margin-bottom: 16px;
   line-height: 1;
+  animation: fadeUp 0.8s ease both;
 }
 
-.contact-title span { color: var(--cyan); }
+.contact-title span {
+  color: var(--cyan);
+  display: inline-block;
+  animation: glow 3s ease-in-out infinite alternate;
+}
 
 .contact-sub {
   font-family: 'Space Mono', monospace;
@@ -25,6 +40,7 @@
   color: var(--muted);
   letter-spacing: 2px;
   margin-bottom: 48px;
+  animation: fadeUp 0.8s ease 0.2s both;
 }
 
 .contact-links {
@@ -32,6 +48,49 @@
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.contact-links .btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.contact-links .btn::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(0,212,255,0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.contact-links .btn:hover::before {
+  width: 400px; height: 400px;
+}
+
+.contact-links .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0,212,255,0.4), 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.contact-links .btn-outline:hover {
+  transform: translateY(-2px);
+  background: rgba(0,212,255,0.08);
+  box-shadow: 0 0 20px rgba(0,212,255,0.15);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 20px rgba(0,212,255,0.3); }
+  to   { text-shadow: 0 0 40px rgba(0,212,255,0.6), 0 0 60px rgba(0,212,255,0.3); }
 }
 
 @media (max-width: 768px) {

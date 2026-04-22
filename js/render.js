@@ -2,8 +2,8 @@
 function renderExperience() {
   const container = document.getElementById('timeline-container');
   if (!container) return;
-  container.innerHTML = EXPERIENCE.map(item => `
-    <div class="timeline-item reveal">
+  container.innerHTML = EXPERIENCE.map((item, index) => `
+    <div class="timeline-item reveal" style="transition-delay: ${index * 100}ms">
       <div class="timeline-date">${item.date}</div>
       <div class="timeline-line"></div>
       <div class="timeline-content">
@@ -23,7 +23,7 @@ function renderExperience() {
 function renderProjects() {
   const container = document.getElementById('projects-container');
   if (!container) return;
-  container.innerHTML = PROJECTS.filter(Boolean).map(p => {
+  container.innerHTML = PROJECTS.filter(Boolean).map((p, index) => {
     const visual = p.hasOrbit ? `
       <div class="featured-visual">
         <div class="orbit-demo">
@@ -40,7 +40,7 @@ function renderProjects() {
     const tags = p.tags.map(t => `<span class="tag tag-${t.color}">${t.label}</span>`).join('');
     if (p.featured) {
       return `
-        <div class="project-card featured reveal" onclick="window.open('${p.link}','_blank')" role="link" tabindex="0" aria-label="${p.name} — ${p.sub}. Click to view on GitHub.">
+        <div class="project-card featured reveal" style="transition-delay: ${index * 100}ms" onclick="window.open('${p.link}','_blank')" role="link" tabindex="0" aria-label="${p.name} — ${p.sub}. Click to view on GitHub.">
           <div class="project-content">
             <div class="project-num">${p.num}</div>
             <div class="project-name">${p.name}</div>
@@ -56,7 +56,7 @@ function renderProjects() {
         </div>`;
     }
     return `
-      <div class="project-card reveal" onclick="window.open('${p.link}','_blank')" role="link" tabindex="0" aria-label="${p.name} — ${p.sub}. Click to view on GitHub.">
+      <div class="project-card reveal" style="transition-delay: ${index * 100}ms" onclick="window.open('${p.link}','_blank')" role="link" tabindex="0" aria-label="${p.name} — ${p.sub}. Click to view on GitHub.">
         <div class="project-num">${p.num}</div>
         <div class="project-name">${p.name}</div>
         <div class="project-sub">${p.sub}</div>
@@ -73,8 +73,8 @@ function renderProjects() {
 function renderSkills() {
   const container = document.getElementById('skills-container');
   if (!container) return;
-  container.innerHTML = SKILLS.map(g => `
-    <div class="skill-group reveal">
+  container.innerHTML = SKILLS.map((g, index) => `
+    <div class="skill-group reveal" style="transition-delay: ${index * 80}ms">
       <div class="skill-group-title">${g.title}</div>
       <div class="skill-list">
         ${g.items.map(i => `<span class="tag tag-${g.color}">${i}</span>`).join('')}
@@ -86,8 +86,8 @@ function renderSkills() {
 function renderAwards() {
   const container = document.getElementById('awards-container');
   if (!container) return;
-  container.innerHTML = AWARDS.map(a => `
-    <div class="award-card reveal">
+  container.innerHTML = AWARDS.map((a, index) => `
+    <div class="award-card reveal" style="transition-delay: ${index * 80}ms">
       <div class="award-icon">${a.icon}</div>
       <div class="award-name">${a.name}</div>
       <div class="award-org">${a.org}</div>
