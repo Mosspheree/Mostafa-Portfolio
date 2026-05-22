@@ -201,17 +201,17 @@ const SKILLS = [
   {
     title: "Languages",
     color: "cyan",
-    items: ["C++", "Python", "Java", "JavaScript", "C", "SQL", "Kotlin", "HTML/CSS"],
+    items: ["C++", "Python", "Java", "JavaScript", "TypeScript", "C", "C#", "SQL", "Kotlin", "MATLAB", "Bash", "HTML/CSS"],
   },
   {
     title: "ML / AI",
     color: "amber",
-    items: ["PyTorch", "Hugging Face", "ONNX", "DistilBERT", "TinyLLaMA", "Phi-3", "Model Benchmarking"],
+    items: ["PyTorch", "TensorFlow", "Hugging Face", "ONNX", "scikit-learn", "NumPy", "Pandas", "LangChain", "Azure AI", "DistilBERT", "TinyLLaMA", "Phi-3", "Model Benchmarking"],
   },
   {
     title: "Systems",
     color: "green",
-    items: ["HIL/SIL Testing", "Flight Software", "UART/Serial", "CRC Validation", "libclang", "CMake", "Linux", "Git"],
+    items: ["HIL/SIL Testing", "Flight Software", "UART/Serial", "CRC Validation", "libclang", "CMake", ".NET", "Docker", "Azure", "CI/CD", "GDB", "Linux", "Git"],
   },
   {
     title: "Web & Cloud",
