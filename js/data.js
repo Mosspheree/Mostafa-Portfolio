@@ -2,14 +2,33 @@
 
 const EXPERIENCE = [
   {
+    date: "MAY 2026 — AUG 2026",
+    company: "Tennessee Technological University · NSF CyberAI REU",
+    role: "NSF CyberAI Research Intern",
+    bullets: [
+      "Executed white-box adversarial attacks on Meta's V-JEPA 2.1 ViT-L video encoder, achieving a 91% untargeted attack success rate via a dual-constrained sparse attack perturbing only 4 of 16 input frames within LPIPS perceptual bounds.",
+      "Engineered a training-time backdoor via LoRA fine-tuning, achieving a 90.5% attack success rate on the Something-Something V2 action-recognition dataset.",
+      "Established and validated a clean fine-tuning baseline against published benchmark accuracy prior to poisoning experiments, ensuring measured degradation was attributable to the attack rather than pipeline variance.",
+      "Implemented and compared three threat models: pixel-space PGD, frequency-domain PGD, and perceptual LPA, measuring transferability and perceptual detectability across each.",
+    ],
+    tags: [
+      { label: "Adversarial ML",   color: "cyan"  },
+      { label: "V-JEPA 2.1",       color: "cyan"  },
+      { label: "LoRA",             color: "amber" },
+      { label: "PGD / LPIPS",      color: "amber" },
+      { label: "PyTorch",          color: "green" },
+    ],
+  },
+  {
     date: "AUG 2025 — MAY 2026",
     company: "Astrobotic Technology · NASA CLPS",
     role: "Software Integration & Testing Intern",
     bullets: [
-      "Developed and maintained hardware-in-the-loop (HIL) and software-in-the-loop (SIL) test automation for flight and avionics interfaces on a NASA Commercial Lunar Payload Services mission.",
-      "Implemented emulator-side protocol handling for serial/UART-style streams including buffering, framing, and CRC validation to support deterministic integration testing.",
-      "Configured 5+ emulators and executed 10+ test procedures, resolving 15 critical bugs to maintain mission-ready standards.",
-      "Updated and added features to DFS & EFS systems, improving system reliability and increasing test coverage by ~25%.",
+      "Designed a pull-style serial protocol parser for the NASA CLPS mission, reverse-engineering the undocumented byte-level protocols of four spacecraft hardware emulators (High-Speed Switch, Transponder, Main Bus Controller, Gimbal) from existing driver code and observed behavior; consolidated four finite state machines into one reusable framing layer with frame synchronization and resync-on-error recovery, cutting frame processing time 60%.",
+      "Refactored a flight hardware peripheral driver from blocking sequential I/O to concurrent send/receive via background threading with metadata-based response matching, eliminating idle wait and preventing deadlocks.",
+      "Expanded emulator telemetry from 2 baseline counters to 18 exposed parameters per unit (FET switch states, RF path status, board temperatures, CRC/protocol error counters), enabling near-hardware-fidelity validation without consuming HITL cycles.",
+      "Wrote integration tests validating Mission Manager safe-state transition after a command-and-data-handling CPU reset, with relative and absolute timer synchronization holding across reboots to isolate true reset behavior from timing artifacts.",
+      "Built and maintained 50+ integration test cases across SITL and HITL with pytest and Docker, cutting manual test effort ~25% and raising coverage 20-30%; owned CI/CD pipelines and Git workflows across two semesters.",
     ],
     tags: [
       { label: "HIL/SIL Testing",  color: "cyan"  },
