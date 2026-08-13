@@ -56,7 +56,7 @@ const EXPERIENCE = [
     ],
   },
   {
-    date: "AUG 2024 — PRESENT",
+    date: "SEP 2024 — AUG 2025",
     company: "Institute for International Economic Policy · GWU",
     role: "Web Assistant",
     bullets: [
