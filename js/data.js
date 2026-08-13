@@ -58,7 +58,7 @@ const EXPERIENCE = [
     ],
   },
   {
-    date: "DEC 2024 — PRESENT",
+    date: "JAN 2025 — PRESENT",
     company: "CodeAdvantage",
     role: "Coding & Robotics Instructor",
     bullets: [
